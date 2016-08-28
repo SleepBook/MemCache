@@ -5,13 +5,13 @@ if [ ! -e account.py ];then
 	echo Following steps will guide you complete the setop
 	mkdir -p ../../data
 	touch account.py
-	read -p "Please enter your smtp server, like: smtp.xx.com:xxx"
-	serv_add
+	read -p "Please enter your smtp server, like: smtp.xx.com:xxx" serv
 	read -p "please enter you account, like: xxx@xx.com" acc
 	read -p "please enter your key for the account" key
 	read -p "please enter the address you want to receive the
 	everyday push" dest
-	echo mail_host="$serv_add" > account.py
+	
+	echo mail_host="$serv" >> account.py
 	echo mail_account="$acc" >> account.py
 	echo mail_key="$key" >> account.py
 	echo receiver="$dest" >> account.py
