@@ -1,0 +1,7 @@
+*.md
+.memcache.rc
+account.py
+*.pyc
+*~
+!ReadMe.md
+
