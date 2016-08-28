@@ -34,6 +34,8 @@ for dat in $dat1 $dat2 $dat3 $dat4 $dat5 $dat6 $dat7 $dat8
 do
 	if [ -e ../../data/${dat}.md ];then
 		echo "*${dat}*" >> temp.md
+		echo "***" >> temp.md
+		echo "***" >> temp.md
 		cat temp.md ../../data/${dat}.md > temp2.md
 		mv temp2.md temp.md
 	fi

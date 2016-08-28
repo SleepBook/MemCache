@@ -33,9 +33,9 @@ else
 	exit 1
 fi
 
-scp -P $server_port $server_add:$server_path/$filename ../data/$filename || touch ../data/$filename
+scp -P $server_port $server_add:$server_path/data/$filename ../data/$filename || touch ../data/$filename
 cygstart ../data/$filename
 read -p "Press anything to Contunue..." tmp
-scp -P $server_port ../data/$filename $server_add:$server_path/$filename
+scp -P $server_port ../data/$filename $server_add:$server_path/data/$filename
 echo Success Uploaded
 exit 0
