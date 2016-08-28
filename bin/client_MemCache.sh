@@ -8,7 +8,7 @@ if [ $? != 0 ];then
 	echo "This seems to be your first time here, following step will
 	guide you complete the setup work"
 	touch ../.memcache.rc
-	read -p "Please enter the server address:\n" server_add
+	read -p "Please enter the server address:" server_add
 	echo server_add="$server_add" > ../.memcache.rc
 	read -p "please enter the key on server" server_key
 	echo server_key=$server_key >> ../.memcache.rc

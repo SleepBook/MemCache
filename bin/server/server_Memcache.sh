@@ -17,6 +17,7 @@ if [ ! -e account.py ];then
 	echo receiver="$dest" >> account.py
 	echo Setup Complete!
 fi
+
 dat1=$(date +%Y-%m-%d)
 dat2=$(date --date='1 days ago' '+%Y-%m-%d')
 dat3=$(date --date='2 days ago' '+%Y-%m-%d')
