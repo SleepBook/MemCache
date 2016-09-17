@@ -28,13 +28,13 @@ dat7=$(date --date='30 days ago' '+%Y-%m-%d')
 dat8=$(date --date='60 days ago' '+%Y-%m-%d')
 
 touch temp.md
-echo "### Guten Tag, Heute es gibt pieces fur dich" > temp.md
+echo "## Guten Tag" > temp.md
 echo "****" >> temp.md
 for dat in $dat1 $dat2 $dat3 $dat4 $dat5 $dat6 $dat7 $dat8
 do
 	if [ -e ../../data/${dat}.md ];then
-		echo "*${dat}*" >> temp.md
 		echo "***" >> temp.md
+		echo "*${dat}*" >> temp.md
 		echo "***" >> temp.md
 		cat temp.md ../../data/${dat}.md > temp2.md
 		mv temp2.md temp.md
@@ -46,7 +46,6 @@ unsuccessful"
 
 python sendmail.py temp.html || echo "Send Email Unsuccessful"
 
-echo "Today's job done"
 rm temp.html
 exit 0
 		
