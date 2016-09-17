@@ -55,6 +55,10 @@ The Information is kept in the `account.py` under `/bin/server`
 At Present you need to enter in these information with \"\'\" around.
 This should be a bug and i hope to fix this ASAP.
 
+Also, when first time use, you need to edit the script to assign the
+path to your project to the PRJ_ROOT variable. Then this script can be
+run without any problem using crontab.
+
 ##Issue
 
 1. Only cygwin supprot now for client.
