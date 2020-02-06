@@ -23,6 +23,7 @@ if [ ! -e ${PRJ_ROOT}/bin/server/account.py ];then
 	echo Setup Complete!
 fi
 
+
 dat1=$(date +%Y-%m-%d)
 dat2=$(date --date='1 days ago' '+%Y-%m-%d')
 dat3=$(date --date='2 days ago' '+%Y-%m-%d')
@@ -46,18 +47,14 @@ do
 	fi
 done
 
-markdown_py ${PRJ_ROOT}/bin/server/temp.md >> ${PRJ_ROOT}/bin/server/temp.html || echo "Rendering HTML file
+python -m markdown ${PRJ_ROOT}/bin/server/temp.md >> ${PRJ_ROOT}/bin/server/temp.html || echo "Rendering HTML file
 unsuccessful"
 
 python ${PRJ_ROOT}/bin/server/sendmail.py ${PRJ_ROOT}/bin/server/temp.html || echo "Send Email Unsuccessful"
 
-<<<<<<< HEAD
-rm temp.html
-=======
 echo "Today's job done"
 rm ${PRJ_ROOT}/bin/server/temp.html
 rm ${PRJ_ROOT}/bin/server/temp.md
->>>>>>> 7dbaac06c2afc7d8b9ea0b23d3955346a41bae6b
 exit 0
 		
 
