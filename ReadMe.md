@@ -7,6 +7,9 @@ at certain point(according to Ebbinghaus Curve) these information will feed back
 
 ## Quick Start
 ### Server Side
+***Pre-requsite***
+
+    the python markdown package should be installed
 1. Open the `bin/server/server_Memcache.sh` and edit the `PRJ_ROOT` to point to the root dir of this repo
 2. Run the script for the first time, it will navigate you to record some info about the server(also a test email will be sent)
 3. Add this script to run everyday by linux `crontab` tool. This can be done by
@@ -15,8 +18,19 @@ crontab -e MIN HRS * * * bash /abs_path/to/this/script
 ```
 
 ### Client Side
+***Pre-requsite***
+1. The server should have an ssh name on the client mahcine, this can be addes in the .ssh/config file
+2. A default program to open .md files
 
-## Usage
+Open the `client_MemCache.sh` file the populate 3 variables:
+
+`TMP_DIR` should point to the directory where temp files are put
+`SERVER_NAME` is the remote server's ssh name
+`SERVER_PATH` is the absolute path of the MemCache repo on the remote server
+
+Then everytime you ready to take a quick note for today's study, just run the `client_MemCache.sh` script you are good to roll! Note teh script can take either no parameter or one. The one parameter is useful when you want to make for previous days' study, and when you do this, your filename should comply the format of `YYYY-MM-DD`
+
+## Structure
 
 This program have a client part and server part. The client help to send
 your everyday documentation to the server though a Markdown text. And
@@ -41,19 +55,8 @@ The server-end script `server_Memcache.sh` is kept under `$PROJECT_ROOT/bin/serv
 
 ### Config
 
-First time you run either script, the program will guide you to setup
-the configuration.
-
-***Client-End Configuration***
-
-To be exact, on client-end, the infomation you need to provide is the
-server's IP and the ssh port. Your account and password on the server
-and the path to this program on the server. To provide the server's IP
-and User, you need to take the form like:
->xxx@202.xxx.xxx.xxx
-
-And all the information is kept under a configure file `.memcache.rc`
-under the Program Root directort.
+First time you run the server script, the program will guide you to setup
+the account information.
 
 ***Server-End Configuration***
 
@@ -64,11 +67,9 @@ the everyday feed.
 The Information is kept in the `account.py` under `/bin/server`
 
 At Present you need to enter in these information with \"\'\" around.
-This should be a bug and i hope to fix this ASAP.
 
-Also, when first time use, you need to edit the script to assign the
-path to your project to the PRJ\_ROOT variable. Then this script can be
-run without any problem using crontab.
+Note some email server provider will deny the connection from this app. Usually you need to config with your email service provider to allow less-secure smtp connection.
+
 
 ## Issue
 
